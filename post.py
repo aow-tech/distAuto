@@ -7,7 +7,8 @@ Runs once a day (GitHub Actions). It:
   3. marks the row as posted,
   4. deletes the image from posts/ (cleanup).
 
-Needs one secret: IG_ACCESS_TOKEN (an Instagram long-lived access token).
+Needs one secret: IG_ACCESS_TOKEN, a long-lived Facebook user access token
+(from Graph API Explorer) for the Facebook Page that is linked to the Instagram account.
 Set DRY_RUN=true to see what would be posted without posting.
 """
 import csv
@@ -20,7 +21,7 @@ import urllib.parse
 import urllib.request
 from zoneinfo import ZoneInfo
 
-API = "https://graph.instagram.com/" + os.environ.get("IG_API_VERSION", "v23.0")
+API = "https://graph.facebook.com/" + os.environ.get("IG_API_VERSION", "v23.0")
 TOKEN = os.environ.get("IG_ACCESS_TOKEN", "")
 REPO = os.environ.get("GITHUB_REPOSITORY", "")      # e.g. yourname/distAuto
 BRANCH = os.environ.get("GITHUB_REF_NAME", "main")
@@ -29,8 +30,8 @@ SCHEDULE = "schedule.csv"
 POSTS_DIR = "posts"
 
 
-def call(method, path, **params):
-    params["access_token"] = TOKEN
+def call(method, path, token=None, **params):
+    params["access_token"] = token or TOKEN
     data = urllib.parse.urlencode(params).encode()
     url = f"{API}/{path}"
     if method == "GET":
@@ -70,13 +71,19 @@ def main():
     if not TOKEN:
         sys.exit("IG_ACCESS_TOKEN secret is not set.")
 
-    me = call("GET", "me", fields="user_id,username")
-    print(f"Posting as @{me.get('username')}")
+    # Find the Facebook Page that is linked to the Instagram account, and its Page token.
+    pages = call("GET", "me/accounts", fields="name,access_token,instagram_business_account{id,username}").get("data", [])
+    page = next((p for p in pages if p.get("instagram_business_account")), None)
+    if page is None:
+        sys.exit("No Facebook Page with a linked Instagram account was found for this token.")
+    ig = page["instagram_business_account"]
+    page_token = page["access_token"]
+    print(f"Posting as @{ig.get('username')} (via Page '{page['name']}')")
 
-    container = call("POST", f"{me['user_id']}/media", image_url=image_url, caption=row["caption"])["id"]
+    container = call("POST", f"{ig['id']}/media", page_token, image_url=image_url, caption=row["caption"])["id"]
 
     for _ in range(30):                      # wait up to ~2.5 minutes for Instagram to fetch the image
-        status = call("GET", container, fields="status_code").get("status_code")
+        status = call("GET", container, page_token, fields="status_code").get("status_code")
         if status == "FINISHED":
             break
         if status in ("ERROR", "EXPIRED"):
@@ -85,7 +92,7 @@ def main():
     else:
         sys.exit("Timed out waiting for Instagram to process the image.")
 
-    media_id = call("POST", f"{me['user_id']}/media_publish", creation_id=container)["id"]
+    media_id = call("POST", f"{ig['id']}/media_publish", page_token, creation_id=container)["id"]
     print(f"Posted. Media id {media_id}")
 
     # Mark as posted and clean up the image.

@@ -26,6 +26,8 @@ TOKEN = os.environ.get("IG_ACCESS_TOKEN", "")
 REPO = os.environ.get("GITHUB_REPOSITORY", "")      # e.g. yourname/distAuto
 BRANCH = os.environ.get("GITHUB_REF_NAME", "main")
 DRY_RUN = os.environ.get("DRY_RUN", "false").lower() == "true"
+# Manual runs catch up: they post the oldest missed day first (if any), otherwise today.
+CATCH_UP = os.environ.get("CATCH_UP", "false").lower() == "true"
 SCHEDULE = "schedule.csv"
 POSTS_DIR = "posts"
 
@@ -51,12 +53,18 @@ def main():
         rows = list(csv.DictReader(f))
     fields = list(rows[0].keys())
 
-    row = next((r for r in rows if r["date"] == today), None)
+    row = None
+    if CATCH_UP:
+        row = next((r for r in rows if r["date"] < today and not r["posted"]), None)
+        if row:
+            print(f"Catching up on missed day {row['date']}.")
+    if row is None:
+        row = next((r for r in rows if r["date"] == today), None)
     if row is None:
         print(f"Nothing scheduled for {today}.")
         return
     if row["posted"]:
-        print(f"{today} is already posted ({row['posted']}).")
+        print(f"{row['date']} is already posted ({row['posted']}).")
         return
 
     image_path = os.path.join(POSTS_DIR, row["image"])
@@ -64,7 +72,7 @@ def main():
         sys.exit(f"Image {image_path} is missing.")
     image_url = f"https://raw.githubusercontent.com/{REPO}/{BRANCH}/{POSTS_DIR}/{urllib.parse.quote(row['image'])}"
 
-    print(f"Today: {today}\nImage: {image_url}\nCaption:\n{row['caption']}\n")
+    print(f"Today: {today}  Posting: {row['date']}\nImage: {image_url}\nCaption:\n{row['caption']}\n")
     if DRY_RUN:
         print("DRY RUN: nothing was posted.")
         return

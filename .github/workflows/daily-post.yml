@@ -1,0 +1,46 @@
+name: Daily Instagram post
+
+on:
+  schedule:
+    - cron: "0 14 * * *"   # 14:00 UTC = 7:30 PM India time (GitHub may start it a few minutes late)
+  workflow_dispatch:        # lets you run it by hand from the Actions tab
+    inputs:
+      dry_run:
+        description: "Dry run (show what would be posted, don't post)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write           # needed to save schedule.csv and delete the posted image
+
+concurrency:
+  group: daily-post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Post today's quote
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
+        run: python post.py
+
+      - name: Save progress and clean up
+        run: |
+          git config user.name "abstractofworld-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A schedule.csv posts
+          if git diff --cached --quiet; then
+            echo "Nothing to save."
+          else
+            git commit -m "Posted $(TZ=Asia/Kolkata date +%Y-%m-%d)"
+            git push
+          fi

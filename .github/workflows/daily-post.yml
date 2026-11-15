@@ -2,7 +2,8 @@ name: Daily Instagram post
 
 on:
   schedule:
-    - cron: "0 14 * * *"   # 14:00 UTC = 7:30 PM India time (GitHub may start it a few minutes late)
+    - cron: "40 13 * * *"  # 7:10 PM India time; GitHub usually starts it late, so it tends to land near 7:30
+    - cron: "45 14 * * *"  # 8:15 PM backup, in case GitHub skips the first run (does nothing if already posted)
   workflow_dispatch:        # lets you run it by hand from the Actions tab
     inputs:
       dry_run:

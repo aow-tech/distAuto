@@ -1,211 +1,421 @@
-date,image,caption,posted,media_id
-2026-11-15,day01_Nov15.jpg,"Mingus wrote some of the most complex jazz ever made, and still believed the real skill was simplifying.
+date,slot,image,caption,posted,media_id
+2026-11-15,evening,day01_Nov15.jpg,"Mingus wrote some of the most complex jazz ever made, and still believed the real skill was simplifying.
 
 What's something you made simpler recently?
 
 — Charles Mingus, Mainliner magazine, 1977
 
 #creativity #musicians #composer #makingthings #abstractofworld",2026-11-15 20:47,18136950604678995
-2026-11-16,day02_Nov16.jpg,"The creator of Civilization summed up game design in one line.
+2026-11-16,evening,day02_Nov16.jpg,"The creator of Civilization summed up game design in one line.
 
 What's the most interesting choice a game ever gave you?
 
 — Sid Meier, GDC talk, 1989 (via Rollings & Morris, Game Architecture and Design)
 
 #gamedesign #gamedev #indiedev #makingthings #abstractofworld",2026-11-17 22:14,17959483569270163
-2026-11-17,day03_Nov17.jpg,"Close painted through paralysis by strapping a brush to his wrist. He didn't wait for inspiration.
+2026-11-17,evening,day03_Nov17.jpg,"Close painted through paralysis by strapping a brush to his wrist. He didn't wait for inspiration.
 
 Do you wait for inspiration or start anyway?
 
 — Chuck Close, Interviews; verified by Quote Investigator
 
 #artistsoninstagram #creativeprocess #creativity #makingthings #abstractofworld",,
-2026-11-18,day04_Nov18.jpg,"Eno and Schmidt made a deck of cards to break creative blocks. This is the most famous one.
+2026-11-18,morning,Nov18_am.jpg,"The most quoted definition of a game, and it explains why we happily choose to make things hard for ourselves.
+
+What's the most satisfying obstacle a game ever put in front of you?
+
+— Bernard Suits, The Grasshopper: Games, Life and Utopia, 1978
+
+#gamedesign #gamedev #indiedev #makingthings #abstractofworld",,
+2026-11-18,evening,day04_Nov18.jpg,"Eno and Schmidt made a deck of cards to break creative blocks. This is the most famous one.
 
 Has a mistake ever become your favourite part of something?
 
 — Brian Eno & Peter Schmidt, Oblique Strategies cards, 1975
 
 #brianeno #musicproduction #creativity #makingthings #abstractofworld",,
-2026-11-19,day05_Nov19.jpg,"Koster argues we enjoy games because our brains love mastering patterns.
+2026-11-19,morning,Nov19_am.jpg,"Kandinsky thought colour worked on us the way music does: directly, before we think about it.
+
+Which colour hits you hardest?
+
+— Wassily Kandinsky, Concerning the Spiritual in Art, 1911
+
+#kandinsky #colour #abstractart #creativity #abstractofworld",,
+2026-11-19,evening,day05_Nov19.jpg,"Koster argues we enjoy games because our brains love mastering patterns.
 
 What game taught you something without you noticing?
 
 — Raph Koster, A Theory of Fun for Game Design, 2004
 
 #gamedesign #gamedev #indiedev #learning #abstractofworld",,
-2026-11-20,day06_Nov20.jpg,"Limits aren't the enemy of creativity. Stravinsky thought they were the engine.
+2026-11-20,morning,Nov20_am.jpg,"Miyamoto's test for a good idea: it doesn't fix one problem, it quietly fixes several.
+
+What's an idea that solved more than one problem for you?
+
+— Shigeru Miyamoto, Iwata Asks: Super Mario Bros. 25th Anniversary, 2010
+
+#nintendo #miyamoto #gamedesign #gamedev #abstractofworld",,
+2026-11-20,evening,day06_Nov20.jpg,"Limits aren't the enemy of creativity. Stravinsky thought they were the engine.
 
 What's your favourite creative constraint?
 
 — Igor Stravinsky, Poetics of Music, 1942
 
 #composer #classicalmusic #creativity #makingthings #abstractofworld",,
-2026-11-21,day07_Nov21.jpg,"Martin's answer when people asked how to make it.
+2026-11-21,morning,Nov21_am.jpg,"Bowie's advice on creative work: the good stuff starts just past where you feel safe.
+
+What's something you made that scared you a little?
+
+— David Bowie, Inspirations (documentary, dir. Michael Apted), 1997
+
+#davidbowie #musicians #creativity #makingthings #abstractofworld",,
+2026-11-21,evening,day07_Nov21.jpg,"Martin's answer when people asked how to make it.
 
 What skill are you trying to get undeniably good at?
 
 — Steve Martin, Interview with Charlie Rose, 2007
 
 #creativity #craft #artistsoninstagram #makingthings #abstractofworld",,
-2026-11-22,day08_Nov22.jpg,"From a letter LeWitt wrote to a friend stuck in a creative rut. The whole letter is worth reading.
+2026-11-22,morning,Nov22_am.jpg,"Pixar's co-founder on the ugly first versions behind every great film. Everyone's first draft is bad.
+
+What's the worst first draft you've turned into something good?
+
+— Ed Catmull, Creativity, Inc., 2014
+
+#pixar #animation #creativeprocess #makingthings #abstractofworld",,
+2026-11-22,evening,day08_Nov22.jpg,"From a letter LeWitt wrote to a friend stuck in a creative rut. The whole letter is worth reading.
 
 What's your most gloriously uncool creative habit?
 
 — Sol LeWitt, Letter to Eva Hesse, 1965
 
 #solewitt #contemporaryart #creativity #makingthings #abstractofworld",,
-2026-11-23,day09_Nov23.jpg,"The Atari founder's rule still holds for almost every great game.
+2026-11-23,morning,Nov23_am.jpg,"Huizinga pointed out that animals were playing long before humans built anything we'd call culture.
+
+What's the oldest game you still love?
+
+— Johan Huizinga, Homo Ludens, 1938
+
+#play #gamedesign #history #makingthings #abstractofworld",,
+2026-11-23,evening,day09_Nov23.jpg,"The Atari founder's rule still holds for almost every great game.
 
 Which game nails this best?
 
 — Nolan Bushnell, Known as Bushnell's Law
 
 #gamedesign #retrogaming #gamedev #indiedev #abstractofworld",,
-2026-11-24,day10_Nov24.jpg,"Van Gogh in a letter to his brother. Small daily work adds up.
+2026-11-24,morning,Nov24_am.jpg,"Tharp starts every project with a literal box for notes, clippings and ideas. Structure first, then freedom.
+
+What's in your creative box right now?
+
+— Twyla Tharp, The Creative Habit, 2003
+
+#creativehabit #dance #creativity #makingthings #abstractofworld",,
+2026-11-24,evening,day10_Nov24.jpg,"Van Gogh in a letter to his brother. Small daily work adds up.
 
 What small thing did you make today?
 
 — Vincent van Gogh, Letter to Theo van Gogh, October 1882
 
 #vangogh #arthistory #creativity #makingthings #abstractofworld",,
-2026-11-25,day11_Nov25.jpg,"From the art department rules Sister Corita Kent wrote for her students.
+2026-11-25,morning,Nov25_am.jpg,"Magic's head designer has repeated this for decades: limits force better ideas.
+
+What's a limit that made your work better?
+
+— Mark Rosewater, Twenty Years, Twenty Lessons (GDC talk), 2016
+
+#gamedesign #magicthegathering #boardgames #gamedev #abstractofworld",,
+2026-11-25,evening,day11_Nov25.jpg,"From the art department rules Sister Corita Kent wrote for her students.
 
 Which part of your work do you judge too early?
 
 — Corita Kent, Immaculate Heart College Art Department Rules, 1968
 
 #coritakent #artrules #creativity #makingthings #abstractofworld",,
-2026-11-26,day12_Nov26.jpg,"Tharp built a career on routine, not lightning bolts.
+2026-11-26,morning,Nov26_am.jpg,"Glass on 'the gap' between your taste and your skill, and the only way across it: make a lot.
+
+How big is your gap right now?
+
+— Ira Glass, Interview on storytelling, 2009
+
+#iraglass #creativeprocess #storytelling #makingthings #abstractofworld",,
+2026-11-26,evening,day12_Nov26.jpg,"Tharp built a career on routine, not lightning bolts.
 
 What's one habit that keeps you making things?
 
 — Twyla Tharp, The Creative Habit, 2003
 
 #creativehabit #dance #creativity #makingthings #abstractofworld",,
-2026-11-27,day13_Nov27.jpg,"Iwata opened his 2005 GDC keynote with this, and it became one of gaming's most loved lines.
+2026-11-27,morning,Nov27_am.jpg,"Klee wrote this on a trip to Tunisia, the moment he felt colour finally clicked for him.
+
+When did your craft first click for you?
+
+— Paul Klee, Tunisian diary, 1914
+
+#paulklee #painting #colour #creativity #abstractofworld",,
+2026-11-27,evening,day13_Nov27.jpg,"Iwata opened his 2005 GDC keynote with this, and it became one of gaming's most loved lines.
 
 What do you call yourself in your heart?
 
 — Satoru Iwata, GDC keynote, 2005
 
 #nintendo #gamedev #gaming #indiedev #abstractofworld",,
-2026-11-28,day14_Nov28.jpg,"The last of Rams' ten principles, and the one that sums up the rest.
+2026-11-28,morning,Nov28_am.jpg,"Kojima has never hidden that films shaped every game he's made.
+
+What's 70% of your creative body made of?
+
+— Hideo Kojima, His long-running social media bio
+
+#kojima #gamedev #gaming #indiedev #abstractofworld",,
+2026-11-28,evening,day14_Nov28.jpg,"The last of Rams' ten principles, and the one that sums up the rest.
 
 What's the best-designed object you own?
 
 — Dieter Rams, Ten Principles for Good Design
 
 #design #dieterrams #minimalism #makingthings #abstractofworld",,
-2026-11-29,day15_Nov29.jpg,"Van Gogh on beating self-doubt by doing the work.
+2026-11-29,morning,Nov29_am.jpg,"Lamott's famous permission slip for bad first drafts. It works for songs and games too.
+
+Do you let your first drafts be bad?
+
+— Anne Lamott, Bird by Bird, 1994
+
+#annelamott #writing #creativeprocess #makingthings #abstractofworld",,
+2026-11-29,evening,day15_Nov29.jpg,"Van Gogh on beating self-doubt by doing the work.
 
 What does your inner critic say most often?
 
 — Vincent van Gogh, Letter to Theo van Gogh, 1884
 
 #vangogh #selfdoubt #creativity #makingthings #abstractofworld",,
-2026-11-30,day16_Nov30.jpg,"Simone made music that refused to look away from what was happening around her.
+2026-11-30,morning,Nov30_am.jpg,"Cage spent his life pushing past what music was 'supposed' to be.
+
+Which old idea in your field would you throw out?
+
+— John Cage, Quoted in Richard Kostelanetz, Conversing with Cage, 1988
+
+#johncage #experimentalmusic #composer #creativity #abstractofworld",,
+2026-11-30,evening,day16_Nov30.jpg,"Simone made music that refused to look away from what was happening around her.
 
 Which artist captures our time best right now?
 
 — Nina Simone, Interview, 1968
 
 #ninasimone #musicians #artandsociety #creativity #abstractofworld",,
-2026-12-01,day17_Dec01.jpg,"Angelou on why creativity behaves nothing like a limited resource.
+2026-12-01,morning,Dec01_am.jpg,"Yokoi built hits from cheap, old, well-understood tech used in new ways. The Game Boy is the proof.
+
+What 'old' tool do you use in a new way?
+
+— Gunpei Yokoi, His design philosophy, described in Yokoi Gunpei Game House, 1997
+
+#gameboy #nintendo #gamedesign #retrogaming #abstractofworld",,
+2026-12-01,evening,day17_Dec01.jpg,"Angelou on why creativity behaves nothing like a limited resource.
 
 When do you feel most creatively charged?
 
 — Maya Angelou, Conversations with Maya Angelou, 1982; verified by Quote Investigator
 
 #mayaangelou #creativity #writers #makingthings #abstractofworld",,
-2026-12-02,day18_Dec02.jpg,"Eames on why small decisions decide everything.
+2026-12-02,morning,Dec02_am.jpg,"The first line of the best-selling art book ever written. Art is just people making things.
+
+Who's an artist that made you want to make things?
+
+— E. H. Gombrich, The Story of Art, 1950
+
+#arthistory #artists #creativity #makingthings #abstractofworld",,
+2026-12-02,evening,day18_Dec02.jpg,"Eames on why small decisions decide everything.
 
 What tiny detail makes your favourite game or song?
 
 — Charles Eames, Eames Office
 
 #eames #design #details #makingthings #abstractofworld",,
-2026-12-03,day19_Dec03.jpg,"Another Oblique Strategies card, and a good one for loop-based music.
+2026-12-03,morning,Dec03_am.jpg,"Sutton-Smith spent his career studying play, and came to see it as essential to feeling alive.
+
+When did you last play just for fun?
+
+— Brian Sutton-Smith, The Ambiguity of Play, 1997
+
+#play #games #wellbeing #makingthings #abstractofworld",,
+2026-12-03,evening,day19_Dec03.jpg,"Another Oblique Strategies card, and a good one for loop-based music.
 
 Do you have a song you've played a hundred times that still feels new?
 
 — Brian Eno & Peter Schmidt, Oblique Strategies cards, 1975
 
 #brianeno #musicproduction #ambientmusic #creativity #abstractofworld",,
-2026-12-04,day20_Dec04.jpg,"Cage made a career of questioning what counts as music at all.
+2026-12-04,morning,Dec04_am.jpg,"Henri taught that the work follows from the state of mind, not the other way round.
+
+What puts you in that state?
+
+— Robert Henri, The Art Spirit, 1923
+
+#roberthenri #painting #creativeprocess #creativity #abstractofworld",,
+2026-12-04,evening,day20_Dec04.jpg,"Cage made a career of questioning what counts as music at all.
 
 What's the strangest thing you'd call art?
 
 — John Cage, Lecture on Nothing, in Silence (1961)
 
 #johncage #experimentalmusic #composer #creativity #abstractofworld",,
-2026-12-05,day21_Dec05.jpg,"Some things only make sense in the medium they were made in.
+2026-12-05,morning,Dec05_am.jpg,"After 60-plus books, King still says starting is the hardest part.
+
+What are you about to start?
+
+— Stephen King, On Writing, 2000
+
+#stephenking #writing #creativity #makingthings #abstractofworld",,
+2026-12-05,evening,day21_Dec05.jpg,"Some things only make sense in the medium they were made in.
 
 What can your art say that words can't?
 
 — Edward Hopper, Quoted in Lloyd Goodrich, Edward Hopper, 1971
 
 #edwardhopper #painting #artistsoninstagram #creativity #abstractofworld",,
-2026-12-06,day22_Dec06.jpg,"Tchaikovsky wrote to his patron that he worked every day, whether or not he felt like it.
+2026-12-06,morning,Dec06_am.jpg,"The opening line of Albers' classic colour book: every colour changes with what's next to it.
+
+What's your favourite colour combination?
+
+— Josef Albers, Interaction of Color, 1963
+
+#josefalbers #colourtheory #design #creativity #abstractofworld",,
+2026-12-06,evening,day22_Dec06.jpg,"Tchaikovsky wrote to his patron that he worked every day, whether or not he felt like it.
 
 Is your inspiration a regular visitor or a rare one?
 
 — Pyotr Ilyich Tchaikovsky, Letter to Nadezhda von Meck, 1878
 
 #tchaikovsky #composer #classicalmusic #creativity #abstractofworld",,
-2026-12-07,day23_Dec07.jpg,"Bernstein's response days after President Kennedy was assassinated.
+2026-12-07,morning,Dec07_am.jpg,"From the textbook a generation of game designers learned from: play lives in the space rules leave open.
+
+What's a game that gives you the most freedom inside its rules?
+
+— Katie Salen & Eric Zimmerman, Rules of Play, 2003
+
+#gamedesign #gamedev #indiedev #play #abstractofworld",,
+2026-12-07,evening,day23_Dec07.jpg,"Bernstein's response days after President Kennedy was assassinated.
 
 What do you make when things feel heavy?
 
 — Leonard Bernstein, Speech, November 1963
 
 #bernstein #conductor #musicians #creativity #abstractofworld",,
-2026-12-08,day24_Dec08.jpg,"Bob Ross turned every slip of the brush into a tree.
+2026-12-08,morning,Dec08_am.jpg,"Matisse wrote this in his late cut-paper book, made after illness forced him to reinvent how he worked.
+
+What creative habit are you ready to break?
+
+— Henri Matisse, Jazz, 1947
+
+#matisse #painting #art #creativity #abstractofworld",,
+2026-12-08,evening,day24_Dec08.jpg,"Bob Ross turned every slip of the brush into a tree.
 
 What's your best happy accident?
 
 — Bob Ross, The Joy of Painting
 
 #bobross #painting #happyaccidents #makingthings #abstractofworld",,
-2026-12-09,day25_Dec09.jpg,"Not everything good has to be hard. Sometimes the simple idea is the right one.
+2026-12-09,morning,Dec09_am.jpg,"A pioneer of multiplayer games, Bunten Berry believed games are best when they bring people together.
+
+Who's the person you've played the most games with?
+
+— Dani Bunten Berry, Widely quoted from her talks on multiplayer design
+
+#gamedesign #multiplayer #retrogaming #gamedev #abstractofworld",,
+2026-12-09,evening,day25_Dec09.jpg,"Not everything good has to be hard. Sometimes the simple idea is the right one.
 
 What's an idea you dismissed for being too obvious?
 
 — Brian Eno & Peter Schmidt, Oblique Strategies cards, 1975
 
 #brianeno #creativeprocess #creativity #makingthings #abstractofworld",,
-2026-12-10,day26_Dec10.jpg,"O'Keeffe on why she painted instead of explaining.
+2026-12-10,morning,Dec10_am.jpg,"Bradbury wrote every single day for 70 years, and treated it as protection.
+
+What's your daily creative habit?
+
+— Ray Bradbury, Zen in the Art of Writing, 1990
+
+#raybradbury #writing #creativity #makingthings #abstractofworld",,
+2026-12-10,evening,day26_Dec10.jpg,"O'Keeffe on why she painted instead of explaining.
 
 What colour feels most like you?
 
 — Georgia O'Keeffe, Georgia O'Keeffe (Viking Press, 1976)
 
 #georgiaokeeffe #painting #colour #creativity #abstractofworld",,
-2026-12-11,day27_Dec11.jpg,"Schell's reminder that players never touch your code, only the feeling it creates.
+2026-12-11,morning,Dec11_am.jpg,"One more card from the Oblique Strategies deck. Not every idea has to be new.
+
+What old idea deserves a comeback?
+
+— Brian Eno & Peter Schmidt, Oblique Strategies cards, 1975
+
+#brianeno #obliquestrategies #musicproduction #creativity #abstractofworld",,
+2026-12-11,evening,day27_Dec11.jpg,"Schell's reminder that players never touch your code, only the feeling it creates.
 
 What's a game experience you still remember years later?
 
 — Jesse Schell, The Art of Game Design, 2008
 
 #gamedesign #gamedev #indiedev #makingthings #abstractofworld",,
-2026-12-12,day28_Dec12.jpg,"Hofmann taught a generation of painters to cut until only the essential was left.
+2026-12-12,morning,Dec12_am.jpg,"Kahlo wrote this beside a drawing of her feet, the year before her leg was amputated.
+
+What keeps you making things on hard days?
+
+— Frida Kahlo, Her diary, 1953
+
+#fridakahlo #painting #resilience #creativity #abstractofworld",,
+2026-12-12,evening,day28_Dec12.jpg,"Hofmann taught a generation of painters to cut until only the essential was left.
 
 What did you cut from your last project that made it better?
 
 — Hans Hofmann, Search for the Real, 1948
 
 #hanshofmann #painting #simplicity #creativity #abstractofworld",,
-2026-12-13,day29_Dec13.jpg,"Swap 'book' for game or song. Same rule applies.
+2026-12-13,morning,Dec13_am.jpg,"The title line of Ellington's autobiography, written after 50 years of putting music first.
+
+What does your craft come before?
+
+— Duke Ellington, Music Is My Mistress, 1973
+
+#dukeellington #jazz #musicians #composer #abstractofworld",,
+2026-12-13,evening,day29_Dec13.jpg,"Swap 'book' for game or song. Same rule applies.
 
 What's the thing you wish existed that you could make?
 
 — Toni Morrison, Speech, Ohio Arts Council, 1981; verified by Quote Investigator
 
 #tonimorrison #makeyourown #creativity #makingthings #abstractofworld",,
-2026-12-14,day30_Dec14.jpg,"The creator of Calvin and Hobbes turned down fortunes in merchandising to keep his work his own.
+2026-12-14,morning,Dec14_am.jpg,"Kurosawa on the courage to look at things straight on, including the hard ones.
+
+What's something you've made that looks at something hard?
+
+— Akira Kurosawa, Something Like an Autobiography, 1982
+
+#kurosawa #filmmaking #cinema #creativity #abstractofworld",,
+2026-12-14,evening,day30_Dec14.jpg,"The creator of Calvin and Hobbes turned down fortunes in merchandising to keep his work his own.
 
 What would you make if no one paid you for it?
 
 — Bill Watterson, Commencement speech, Kenyon College, 1990
 
 #billwatterson #cartoonist #artistlife #creativity #abstractofworld",,
+2026-12-15,morning,Dec15_am.jpg,"Sibelius' advice to a young composer worried about reviews.
+
+How do you handle criticism of your work?
+
+— Jean Sibelius, Quoted in Bengt de Törne, Sibelius: A Close-Up, 1937
+
+#sibelius #composer #classicalmusic #creativity #abstractofworld",,
+2026-12-15,evening,Dec15_pm.jpg,"Vonnegut's case for making things even if no one ever sees them.
+
+What do you make just for yourself?
+
+— Kurt Vonnegut, A Man Without a Country, 2005
+
+#vonnegut #writing #art #makingthings #abstractofworld",,
+2026-12-16,morning,Dec16_am.jpg,"From a famous interview where Eames answered 'What is design?' in a few dozen short lines.
+
+What need is your current project answering?
+
+— Charles Eames, Design Q&A, 1972
+
+#eames #design #industrialdesign #makingthings #abstractofworld",,

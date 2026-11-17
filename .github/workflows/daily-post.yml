@@ -2,8 +2,11 @@ name: Daily Instagram post
 
 on:
   schedule:
-    - cron: "40 13 * * *"  # 7:10 PM India time; GitHub usually starts it late, so it tends to land near 7:30
-    - cron: "45 14 * * *"  # 8:15 PM backup, in case GitHub skips the first run (does nothing if already posted)
+    # All times are UTC. GitHub usually starts scheduled runs late, so each slot has a backup run.
+    - cron: "10 1 * * *"   # morning post: 6:40 AM India (~8 PM US East, ~5 PM US West)
+    - cron: "0 2 * * *"    # morning backup: 7:30 AM India (does nothing if already posted)
+    - cron: "40 13 * * *"  # evening post: 7:10 PM India (~2 PM UK, ~9 AM US East)
+    - cron: "45 14 * * *"  # evening backup: 8:15 PM India (does nothing if already posted)
   workflow_dispatch:        # lets you run it by hand from the Actions tab
     inputs:
       dry_run:
@@ -43,6 +46,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "Nothing to save."
           else
-            git commit -m "Posted on $(TZ=Asia/Kolkata date +%Y-%m-%d)"
+            git commit -m "Posted on $(TZ=Asia/Kolkata date '+%Y-%m-%d %H:%M')"
             git push
           fi

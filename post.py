@@ -2,7 +2,8 @@
 @abstractofworld daily poster.
 
 Runs once a day (GitHub Actions). It:
-  1. finds today's row in schedule.csv (India time),
+  1. finds the row in schedule.csv for today's current slot (India time):
+     runs before 1 PM post the "morning" row, later runs post the "evening" row,
   2. posts that image + caption to Instagram,
   3. marks the row as posted,
   4. deletes the image from posts/ (cleanup).
@@ -26,7 +27,7 @@ TOKEN = os.environ.get("IG_ACCESS_TOKEN", "")
 REPO = os.environ.get("GITHUB_REPOSITORY", "")      # e.g. yourname/distAuto
 BRANCH = os.environ.get("GITHUB_REF_NAME", "main")
 DRY_RUN = os.environ.get("DRY_RUN", "false").lower() == "true"
-# Manual runs catch up: they post the oldest missed day first (if any), otherwise today.
+# Manual runs catch up: they post the oldest missed post first (if any), otherwise the current slot.
 CATCH_UP = os.environ.get("CATCH_UP", "false").lower() == "true"
 SCHEDULE = "schedule.csv"
 POSTS_DIR = "posts"
@@ -48,23 +49,28 @@ def call(method, path, token=None, **params):
 
 
 def main():
-    today = datetime.datetime.now(ZoneInfo("Asia/Kolkata")).date().isoformat()
+    now = datetime.datetime.now(ZoneInfo("Asia/Kolkata"))
+    today = now.date().isoformat()
+    slot = "morning" if now.hour < 13 else "evening"
+    order = {"morning": 0, "evening": 1}
     with open(SCHEDULE, newline="", encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
     fields = list(rows[0].keys())
 
     row = None
     if CATCH_UP:
-        row = next((r for r in rows if r["date"] < today and not r["posted"]), None)
-        if row:
-            print(f"Catching up on missed day {row['date']}.")
+        due = [r for r in rows if not r["posted"]
+               and (r["date"], order[r["slot"]]) < (today, order[slot])]
+        if due:
+            row = min(due, key=lambda r: (r["date"], order[r["slot"]]))
+            print(f"Catching up on missed post: {row['date']} {row['slot']}.")
     if row is None:
-        row = next((r for r in rows if r["date"] == today), None)
+        row = next((r for r in rows if r["date"] == today and r["slot"] == slot), None)
     if row is None:
-        print(f"Nothing scheduled for {today}.")
+        print(f"Nothing scheduled for {today} {slot}.")
         return
     if row["posted"]:
-        print(f"{row['date']} is already posted ({row['posted']}).")
+        print(f"{row['date']} {row['slot']} is already posted ({row['posted']}).")
         return
 
     image_path = os.path.join(POSTS_DIR, row["image"])
@@ -72,7 +78,7 @@ def main():
         sys.exit(f"Image {image_path} is missing.")
     image_url = f"https://raw.githubusercontent.com/{REPO}/{BRANCH}/{POSTS_DIR}/{urllib.parse.quote(row['image'])}"
 
-    print(f"Today: {today}  Posting: {row['date']}\nImage: {image_url}\nCaption:\n{row['caption']}\n")
+    print(f"Today: {today}  Posting: {row['date']} {row['slot']}\nImage: {image_url}\nCaption:\n{row['caption']}\n")
     if DRY_RUN:
         print("DRY RUN: nothing was posted.")
         return

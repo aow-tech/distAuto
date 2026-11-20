@@ -2,11 +2,13 @@ name: Daily Instagram post
 
 on:
   schedule:
-    # All times are UTC. GitHub usually starts scheduled runs late, so each slot has a backup run.
+    # All times are UTC. Keep these in step with CRON_SLOTS in post.py. GitHub usually starts scheduled runs late, so each slot has a backup run.
     - cron: "10 1 * * *"   # morning post: 6:40 AM India (~8 PM US East, ~5 PM US West)
     - cron: "0 2 * * *"    # morning backup: 7:30 AM India (does nothing if already posted)
     - cron: "40 13 * * *"  # evening post: 7:10 PM India (~2 PM UK, ~9 AM US East)
     - cron: "45 14 * * *"  # evening backup: 8:15 PM India (does nothing if already posted)
+    - cron: "10 17 * * *"  # theme post: 10:40 PM India (~12 PM US East, ~5 PM UK)
+    - cron: "15 18 * * *"  # theme backup: 11:45 PM India (does nothing if already posted)
   workflow_dispatch:        # lets you run it by hand from the Actions tab
     inputs:
       dry_run:
@@ -26,16 +28,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main         # always start from the latest progress, even if this run was queued
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Post today's quote
+      - name: Post to Instagram
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
           CATCH_UP: ${{ github.event_name == 'workflow_dispatch' }}
+          CRON: ${{ github.event.schedule }}
         run: python post.py
 
       - name: Save progress and clean up

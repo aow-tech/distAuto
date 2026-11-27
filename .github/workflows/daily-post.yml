@@ -44,13 +44,20 @@ jobs:
         run: python post.py
 
       - name: Save progress and clean up
+        if: always()        # save whatever was recorded, even if a later step failed
         run: |
           git config user.name "abstractofworld-bot"
           git config user.email "actions@users.noreply.github.com"
           git add -A schedule.csv posts
           if git diff --cached --quiet; then
             echo "Nothing to save."
-          else
-            git commit -m "Posted on $(TZ=Asia/Kolkata date '+%Y-%m-%d %H:%M')"
-            git push
+            exit 0
           fi
+          git commit -m "Posted on $(TZ=Asia/Kolkata date '+%Y-%m-%d %H:%M')"
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase -q origin main && git push -q origin HEAD:main && { echo "Saved."; exit 0; }
+            echo "Save failed (attempt $attempt), retrying..."
+            sleep $((attempt * 10))
+          done
+          echo "::error::Could not save progress to GitHub."
+          exit 1

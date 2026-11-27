@@ -45,6 +45,10 @@ CRON_SLOTS = {
 ORDER = {"morning": 0, "evening": 1, "theme": 2}
 
 
+class ApiError(Exception):
+    pass
+
+
 def call(method, path, token=None, **params):
     params["access_token"] = token or TOKEN
     data = urllib.parse.urlencode(params).encode()
@@ -57,7 +61,7 @@ def call(method, path, token=None, **params):
         with urllib.request.urlopen(req, timeout=60) as r:
             return json.load(r)
     except urllib.error.HTTPError as e:
-        sys.exit(f"Instagram API error on {path}: {e.read().decode()}")
+        raise ApiError(f"Instagram API error on {path}: {e.read().decode()}")
 
 
 def current_slot(now):
@@ -82,7 +86,38 @@ def wait_until_ready(container, token):
     sys.exit("Timed out waiting for Instagram to process the media.")
 
 
+def norm(text):
+    return " ".join((text or "").split())
+
+
+def already_on_instagram(ig_id, token, caption):
+    """Return the media id if our account already has a post with this exact caption."""
+    recent = call("GET", f"{ig_id}/media", token, fields="id,caption,timestamp", limit=30).get("data", [])
+    want = norm(caption)
+    return next((m["id"] for m in recent if norm(m.get("caption")) == want), None)
+
+
+def record(rows, fields, row, paths, media_id):
+    row["posted"] = datetime.datetime.now(IST).strftime("%Y-%m-%d %H:%M")
+    row["media_id"] = media_id
+    with open(SCHEDULE, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fields)
+        w.writeheader()
+        w.writerows(rows)
+    for p in paths:
+        if os.path.exists(p):
+            os.remove(p)
+            print(f"Removed {p}")
+
+
 def main():
+    try:
+        run()
+    except ApiError as e:
+        sys.exit(str(e))
+
+
+def run():
     now = datetime.datetime.now(IST)
     today, slot = current_slot(now)
     with open(SCHEDULE, newline="", encoding="utf-8") as f:
@@ -130,6 +165,13 @@ def main():
     token = page["access_token"]
     print(f"Posting as @{ig.get('username')} (via Page '{page['name']}')")
 
+    # Never post the same thing twice: if it's already on Instagram, just record it.
+    existing = already_on_instagram(ig["id"], token, row["caption"])
+    if existing:
+        print(f"Already on Instagram (media id {existing}). Recording it instead of posting again.")
+        record(rows, fields, row, paths, existing)
+        return
+
     if len(urls) == 1:
         container = call("POST", f"{ig['id']}/media", token, image_url=urls[0], caption=row["caption"])["id"]
     else:
@@ -142,19 +184,16 @@ def main():
                          children=",".join(children), caption=row["caption"])["id"]
     wait_until_ready(container, token)
 
-    media_id = call("POST", f"{ig['id']}/media_publish", token, creation_id=container)["id"]
+    try:
+        media_id = call("POST", f"{ig['id']}/media_publish", token, creation_id=container)["id"]
+    except ApiError as e:
+        print(f"Publish reported an error: {e}\nChecking whether it went live anyway...")
+        time.sleep(30)
+        media_id = already_on_instagram(ig["id"], token, row["caption"])
+        if not media_id:
+            raise
     print(f"Posted. Media id {media_id}")
-
-    # Mark as posted and clean up the images.
-    row["posted"] = datetime.datetime.now(IST).strftime("%Y-%m-%d %H:%M")
-    row["media_id"] = media_id
-    with open(SCHEDULE, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fields)
-        w.writeheader()
-        w.writerows(rows)
-    for p in paths:
-        os.remove(p)
-        print(f"Removed {p}")
+    record(rows, fields, row, paths, media_id)
 
 
 if __name__ == "__main__":
